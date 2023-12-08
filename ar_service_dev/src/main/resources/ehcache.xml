@@ -1,0 +1,40 @@
+<ehcache:config xmlns:ehcache="http://www.ehcache.org/v3"
+	xmlns:jcache="http://www.ehcache.org/v3/jsr107">
+
+	<ehcache:service>
+		<jcache:defaults enable-management="true"
+			enable-statistics="true" />
+	</ehcache:service>
+
+	<!-- file persistance enabling -->
+	<persistence directory="/var/cache/ar"></persistence>
+
+	
+
+	<ehcache:cache-template name="DefaultCache">
+		<ehcache:expiry>
+			<ehcache:tti>3600</ehcache:tti>
+		</ehcache:expiry>
+		<ehcache:heap>200</ehcache:heap>
+
+		<ehcache:listeners>
+			<ehcache:listener>
+				<ehcache:class>com.idsargus.akpmsadminservice.event.CacheEventLogger
+				</ehcache:class>
+				<ehcache:event-firing-mode>ASYNCHRONOUS</ehcache:event-firing-mode>
+				<ehcache:event-ordering-mode>UNORDERED</ehcache:event-ordering-mode>
+				<ehcache:events-to-fire-on>CREATED</ehcache:events-to-fire-on>
+				<ehcache:events-to-fire-on>EXPIRED</ehcache:events-to-fire-on>
+				<ehcache:events-to-fire-on>EVICTED</ehcache:events-to-fire-on>
+			</ehcache:listener>
+		</ehcache:listeners>
+
+		<ehcache:resources>
+			<ehcache:heap>1</ehcache:heap>
+			<ehcache:offheap unit="MB">1</ehcache:offheap>
+			<ehcache:disk persistent="true" unit="MB">100</ehcache:disk>
+		</ehcache:resources>
+
+	</ehcache:cache-template>
+
+</ehcache:config>
