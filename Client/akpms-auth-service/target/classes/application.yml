@@ -1,0 +1,80 @@
+server:
+  port: 5002
+#  ssl.key-store: 'akpms.p12'
+#  ssl.key-store-password: 123456
+#  ssl.keyStoreType: PKCS12
+#  ssl.keyAlias: akpms
+
+#  ssl.key-store: 'keystore.p12'
+#  ssl.key-store-password: 123456
+#  ssl.keyStoreType: PKCS12
+#  ssl.keyAlias: tomcat
+
+#  max-http-header-size: 100MB
+#  ssl.key-store-type: JKS
+#  ssl.key-store: 'akpmsadminservice.jks'
+#  ssl.key-store-password: 123456
+#  ssl.key-alias: akpmsadminservice
+  #5002-->9001
+spring:
+  session:
+    store:
+      type: none
+  datasource:
+    # url: jdbc:mysql://192.168.20.153:3306/akpmsdbtesting?useSSL=false
+#    url: jdbc:mysql://192.168.20.153:3306/akpmsdbdev?useSSL=false
+#    url: jdbc:mysql://192.168.20.153:3306/akpmsdb10?useSSL=false
+    #url: jdbc:mysql://15.206.10.166:3306/akpmsdb?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://localhost:3306/akpmsdb?useSSL=false
+#    url: jdbc:mysql://192.168.20.153:3306/akpmsdb10?useSSL=false
+#    username: munish
+#    password: Login@#11
+    # client server argus
+    url: jdbc:mysql://192.168.30.230:3306/akpms_prod?useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: akpmsdb10
+    password: Login@#11
+    #akpms_stage
+#    url: jdbc:mysql://192.168.30.230:3306/akpms_stage?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    username: akpmsdb10
+#    password: Login@#11
+
+#    username: akpmsdbuser
+#    password: Login@@6009
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+    initialization-mode: never
+    platform: mysql
+  #added  for pool size for DB to run on aws , but running without following hikari addition
+    hikari:
+        maximum-pool-size: 30
+        minimum-idle: 10
+        connection-timeout: 30000
+        idle-timeout: 600000
+        max-lifetime: 1800000
+  jpa:
+    properties:
+      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: update
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
+logging:
+   level:
+      ROOT: DEBUG
+
+check-user-scopes: false
+
+config:
+    oauth2:
+        clientid: uydapv5Dtim9j4PwxXJfzy3Gl
+        clientSecret: a38sLS2mpKxzoMZKNOUSTVEn6
+        accesstoken_validity: 1
+        refreshtoken_validity: 300
+        privateKey: -----BEGIN RSA PRIVATE KEY-----MIIEowIBAAKCAQEA5Ng8/UJCa/9SbWB0vClHPdYqylXj8Y05AvNGJdTu5DlqYaTt/SJ2y8lrPN91WOBR4M2b8dhSYLz6lWReZUWvwoU+cszId5yMrKFwkDq3gHEo1zYJAJbYivDrF7Cqo+BCuf6xzIS8xCySTR48q4QonUoUI0PQWPKqt33T/aekl9Kc9P2AsNtxQgxLtM41nOHp1ZeVuniuv9jXiemFCO+IF/QZtxW5kG6aTjSrkWSgOIjqhyDXYZXM6LcM6xZyMMihWiKVGyLawVif502WwsKsqLqygd0nf8Ms2u+usrca6qLavKkouZQT6qn37vZHek5/KOEvCfa/J2V+TOne6o6s3QIDAQABAoIBABhT4I/v1k3S07lq8p36KWeqd9wQq23HXJMyt3dYHplGfUeqF968JjLd07eh7cCoACxMz1Izc/ZywJTXGa3cbaXZMl1T5c/JZa8IboX2qAFQhk3yoZxdbOHAYM2g61MGiTFqoQ4j4klcj6UBHOQC5apq8J8bG3AJRBrDlqC1jKrS9nGbaVM5axINmelSlqQ/gd1JpcLbmKAhV/gCakE3XZ4v/HRqWk0zF5hc8rI6XpoAoQj0z06mzOUNFJ8LLpj/vLMBr8gZANBbrS1EQp6zMyeiUpj2W7DaImnmnx8L5R2JRB14yxSHBDiRLPIs53+mxL7u3JggIOhhfrxJObF27KUCgYEA/0wSFvQEEY4je2P+3iYJX6vCkbnM/T/gSNXKxfbnBKywWjiCzu7gJ8KTM8b9VHKXG6rhdcpa3CnDXR3o0ixxu/pcabZLuGhoxVfzIUPEBWuXvHWh7t7aHYXzZYCn0m6Um9hmWIJFKKCikdiPJ5OwK5dm3OtL9/1MjYC2OWxfUdMCgYEA5XmGOINh0R2+/+cdKwvENzz+djkiUvdILfEjjNqi4jyTpOBlLgmHgp9z8Gq3z04vbW3DGeKNhbbVDcDECLuJNeQdObIMfZucRtk7FUzO4/vcSurear2T4ELCQ+qgo5hx+8TPmTv4puLMcQZHBZI+MBV6odHFTnCFqezegoX9KI8CgYADu1rwVvTQROGj5hxNpwSwD1SyyKKEeTCQH//s0OUjnlqdlwHigH9qVV/Ne/UsDNjEoMTW8fROD5Y5gDxtBhVLiCddrDqDIZOWfuig7dqpsZ7wNE//q+ZIVDLwoubRHqixdoJYfN8B7wcxVpcRHwmOOZJZXF8p6tv5nY4MXNcv3QKBgFX3uPji/3pAEpX8F0lRFyk6iHnx3ZIHYdsUQ6U5I1xuJUHXbxBYMZQV+HFRCZt4RvxP6o9/+FTnsdl9JfO/jh/KXciHk3ZbHajNKP1J0RhH+rd2VezXKNcTK4QWGigvrEQN71gQx4592Ole2KyVpQaOhWqqE6jXLrwCKTnsyHKxAoGBAKCepsBXtg+j338cUY4KxcTvCqdgAEu+WQE5CQWCRc1kyl2TD+Vfusc6aqGdrAwoAlM0HHEyQpMDgmo+0WNUMluPvvrNYrflq+kGyBaoGNmbeyd+wwHiqlmkubrRVOiI0NEjV0ULlWUKPH9bXzeSsNuPrlifdW7dHMSAkCjPh/d+-----END RSA PRIVATE KEY-----
+        publicKey: -----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5Ng8/UJCa/9SbWB0vClHPdYqylXj8Y05AvNGJdTu5DlqYaTt/SJ2y8lrPN91WOBR4M2b8dhSYLz6lWReZUWvwoU+cszId5yMrKFwkDq3gHEo1zYJAJbYivDrF7Cqo+BCuf6xzIS8xCySTR48q4QonUoUI0PQWPKqt33T/aekl9Kc9P2AsNtxQgxLtM41nOHp1ZeVuniuv9jXiemFCO+IF/QZtxW5kG6aTjSrkWSgOIjqhyDXYZXM6LcM6xZyMMihWiKVGyLawVif502WwsKsqLqygd0nf8Ms2u+usrca6qLavKkouZQT6qn37vZHek5/KOEvCfa/J2V+TOne6o6s3QIDAQAB-----END PUBLIC KEY-----

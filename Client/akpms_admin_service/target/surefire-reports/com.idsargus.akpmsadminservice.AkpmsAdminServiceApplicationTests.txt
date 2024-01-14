@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.idsargus.akpmsadminservice.AkpmsAdminServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.358 s - in com.idsargus.akpmsadminservice.AkpmsAdminServiceApplicationTests

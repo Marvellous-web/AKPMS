@@ -1,0 +1,168 @@
+server:
+  port: 5004
+  max-http-header-size: 100MB
+  # for changing to https
+#  ssl.key-store: 'keystore.p12'
+#  ssl.key-store-password: 123456
+#  ssl.keyStoreType: PKCS12
+#  ssl.keyAlias: tomcat
+
+#  ssl.key-store: 'akpms.p12'
+#  ssl.key-store-password: 123456
+#  ssl.keyStoreType: PKCS12
+#  ssl.keyAlias: akpms
+
+
+#  ssl.key-store-type: JKS
+#  ssl.key-store: 'akpmsadminservice.jks'
+#  ssl.key-store-password: 123456
+#  ssl.key-alias: akpmsadminservice
+
+  tomcat:
+    relaxed-query-chars: ['{','}', '[', ']', '/', '\', '`','"']
+  #8086 -----> 5004
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: -----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5Ng8/UJCa/9SbWB0vClHPdYqylXj8Y05AvNGJdTu5DlqYaTt/SJ2y8lrPN91WOBR4M2b8dhSYLz6lWReZUWvwoU+cszId5yMrKFwkDq3gHEo1zYJAJbYivDrF7Cqo+BCuf6xzIS8xCySTR48q4QonUoUI0PQWPKqt33T/aekl9Kc9P2AsNtxQgxLtM41nOHp1ZeVuniuv9jXiemFCO+IF/QZtxW5kG6aTjSrkWSgOIjqhyDXYZXM6LcM6xZyMMihWiKVGyLawVif502WwsKsqLqygd0nf8Ms2u+usrca6qLavKkouZQT6qn37vZHek5/KOEvCfa/J2V+TOne6o6s3QIDAQAB-----END PUBLIC KEY-----
+
+spring:
+  jmx:
+    enabled: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  data:
+    rest:
+      basePath: /v1/arapi
+  security:
+    basic:
+     enable: false
+    ignored: /forget/password/**
+  datasource:
+  # added on 1 Sep
+    continue-on-error: true
+    initialize: false
+
+   # url: jdbc:mysql://192.168.20.153:3306/akpmsdbtesting?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://192.168.20.153:3306/akpmsdbdev?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://15.206.10.166:3306/akpmsdb?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://localhost:3306/akpmsdb?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://192.168.20.153:3306/akpmsdb10?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    username: munish
+#    password: Login@#11
+
+    #    #akpms_oldStage
+#    url: jdbc:mysql://192.168.30.230:3306/akpmsdb10?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    username: akpmsdb10
+#    password: Login@#11
+    # client server argus
+#    url: jdbc:mysql://192.168.30.230:3306/akpms_prod?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    username: akpmsdb10
+#    password: Login@#11
+
+#    #akpms_stage
+    url: jdbc:mysql://192.168.30.230:3306/akpms_stage?useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: akpmsdb10
+    password: Login@#11
+
+
+#    username: munish
+#    password: Login@#11
+#    username: akpmsdbuser
+#    password: Login@@6009
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+      max-threads: 0
+      accept-count: 1000
+    initialization-mode: never
+    platform: mysql
+    #added  for pool size for DB to run on aws , but running without following hikari addition
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+       # dialect: org.hibernate.dialect.MySQL5Dialect
+        type: trace
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: none
+      show_sql: true
+      format_sql: true
+      use_sql_comments: true
+    open-in-view: false
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    #port: 25
+##    username: nayakarindam2023@gmail.com
+##    password: dtlxsrximwvscnvu
+#    username: admn.akpms@gmail.com
+#    password: zpndcwhqahhqdqxh
+##    password: sedu tgou zgoq qnos
+#    protocol: smtp
+#    tls: true
+#    properties.mail.smtp:
+#      auth: true
+#      starttls.enable: true
+#      ssl.trust: smtp.gmail.com
+
+
+  mail:
+#    host: mail2.idsargus.loc
+#    host: 192.168.30.30
+#    port: 25
+#    username: admin.akpms@idsargus.com
+#    password: Login$#321
+
+    host: 192.168.30.30
+    port: 25
+    username: admin.akpms@idsargus.com
+    password: Login$#321
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+##    username:
+##    password:
+#    protocol: smtp
+#    properties:
+#     mail:
+#      smtp:
+#       auth: true
+#       starttls.enable: true
+#       ssl.trust: mail2.idsargus.loc
+#       ssl.trust: 192.168.30.59
+
+#admn.akpms@gmail.com
+#pswd argus123
+#25 ---withot ssl
+#587 ==== star tls
+#465-----ssl
+logging:
+   level:
+      org.springframework.web: DEBUG
+      com.idsargus: DEBUG
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+      org.hibernate.SQL: DEBUG
+      org.springframework.cache: TRACE
+
+JAVA_OPTS: "-Xmx512 -Xms512m -Xms256m -XX:+UseG1GC"

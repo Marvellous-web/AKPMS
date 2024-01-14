@@ -1,0 +1,21 @@
+id,created_on,modified_on,is_deleted,description,name,status,created_by,modified_by,parent_id,deleted,enabled
+1,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Parent Department of Coding, Charge Entry and Demo and Verification","Coding and Charge Entry Department",1,1,0,NULL,0,1
+2,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Parent department of payment posting, balancing, offsets, etc.","Payments Department",1,1,0,NULL,0,1
+3,"2013-05-08 18:04:50","2023-02-23 00:00:00",0,"Parent department of HMO, MCL/CHDP, MCR, PPO, Self Pay/CEP, WC.","Accounts Receivable Department",1,1,0,NULL,0,1
+4,"2013-05-08 18:04:50","2023-02-23 00:00:00",0,"This is the parent department for Accounts Payable process and Accounting Reports.","Accounting Department",1,1,0,NULL,0,1
+5,"2013-05-08 18:04:50","2023-02-09 00:00:00",0,Credentialing,Credentialing,0,1,0,NULL,0,1
+6,"2013-05-08 18:04:50","2023-02-23 00:00:00",0,"Team that handles all the charge entry of primary care and specialist chargess.","Charge Entry",1,1,0,1,0,1
+7,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Coding team that handles Primary Care providers.","Coding Primary Care",1,1,0,1,0,1
+8,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Coding team that handles Specialist providers.","Coding Specialist",1,1,0,1,0,1
+9,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Team that handles all demo, eligibility and verification.","Demo and Verification",1,1,0,1,0,1
+10,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Payments Posting","Payments Posting",1,1,0,2,0,1
+11,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,Treasury,Treasury,1,1,0,2,0,1
+13,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Team that handles all accounts receivable management for HMO insurances.",HMO,1,1,0,3,0,1
+14,"2013-05-08 18:04:50","2014-06-26 03:58:35",0,"MCL and CHDP",MCL,1,1,1,3,0,1
+15,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Team that handles all accounts receivable management for MCR insurance.",MCR,1,1,0,3,0,1
+16,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Team that handles all accounts receivable management for PPO insurances.",PPO,1,1,0,3,0,1
+17,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Self Pay and CEP","Self Pay and CEP",1,1,0,3,0,1
+18,"2013-05-08 18:04:50","0000-00-00 00:00:00",0,"Team that handles all accounts receivable management for Work Comp insurances.","Work Comp",1,1,0,3,0,1
+19,"2014-06-26 03:58:43","0000-00-00 00:00:00",0,,CHDP,1,1,0,3,0,1
+20,"2014-06-26 03:58:43",NULL,0,TBN,LKO,1,1,NULL,4,0,1
+21,"2023-03-31 07:04:48",NULL,NULL,,ARGUSIDS,NULL,NULL,NULL,2,0,1

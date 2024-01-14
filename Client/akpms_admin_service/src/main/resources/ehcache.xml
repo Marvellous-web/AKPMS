@@ -1,0 +1,98 @@
+<ehcache:config xmlns:ehcache="http://www.ehcache.org/v3"
+	xmlns:jcache="http://www.ehcache.org/v3/jsr107">
+
+	<ehcache:service>
+		<jcache:defaults enable-management="true"
+			enable-statistics="true" />
+	</ehcache:service>
+
+	<!-- file persistance enabling -->
+	<persistence directory="/var/cache/admin"></persistence>
+
+	<ehcache:cache alias="adminsettings"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="adminstats"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="ardatabases"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="arproductivityworkflows"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="arsources"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="arstatuscodes"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="departments"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="doctors"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="doctorcompanies"
+		uses-template="DefaultCache"></ehcache:cache>
+    <ehcache:cache alias="doctorgroups"
+		uses-template="DefaultCache"></ehcache:cache>		
+
+	<ehcache:cache alias="emailtemplates"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="hourlytasks"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="insurances"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="locations"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="moneysources"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="paymenttypes"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="permissions"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="qcpoints"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="revenuetypes"
+		uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="roles" uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache alias="users" uses-template="DefaultCache"></ehcache:cache>
+
+	<ehcache:cache-template name="DefaultCache">
+		<ehcache:expiry>
+			<ehcache:tti>3600</ehcache:tti>
+		</ehcache:expiry>
+		<ehcache:heap>200</ehcache:heap>
+
+		<ehcache:listeners>
+			<ehcache:listener>
+				<ehcache:class>com.idsargus.akpmsadminservice.event.CacheEventLogger
+				</ehcache:class>
+				<ehcache:event-firing-mode>ASYNCHRONOUS</ehcache:event-firing-mode>
+				<ehcache:event-ordering-mode>UNORDERED</ehcache:event-ordering-mode>
+				<ehcache:events-to-fire-on>CREATED</ehcache:events-to-fire-on>
+				<ehcache:events-to-fire-on>EXPIRED</ehcache:events-to-fire-on>
+				<ehcache:events-to-fire-on>EVICTED</ehcache:events-to-fire-on>
+			</ehcache:listener>
+		</ehcache:listeners>
+
+		<ehcache:resources>
+			<ehcache:heap>1</ehcache:heap>
+			<ehcache:offheap unit="MB">1</ehcache:offheap>
+			<ehcache:disk persistent="true" unit="MB">100</ehcache:disk>
+		</ehcache:resources>
+
+	</ehcache:cache-template>
+
+</ehcache:config>

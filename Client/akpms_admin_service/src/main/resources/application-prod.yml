@@ -1,0 +1,78 @@
+server:
+  port: 5003
+
+  max-http-header-size: 100MB
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: -----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5Ng8/UJCa/9SbWB0vClHPdYqylXj8Y05AvNGJdTu5DlqYaTt/SJ2y8lrPN91WOBR4M2b8dhSYLz6lWReZUWvwoU+cszId5yMrKFwkDq3gHEo1zYJAJbYivDrF7Cqo+BCuf6xzIS8xCySTR48q4QonUoUI0PQWPKqt33T/aekl9Kc9P2AsNtxQgxLtM41nOHp1ZeVuniuv9jXiemFCO+IF/QZtxW5kG6aTjSrkWSgOIjqhyDXYZXM6LcM6xZyMMihWiKVGyLawVif502WwsKsqLqygd0nf8Ms2u+usrca6qLavKkouZQT6qn37vZHek5/KOEvCfa/J2V+TOne6o6s3QIDAQAB-----END PUBLIC KEY-----
+spring:
+  data:
+    rest:
+      basePath: /v1/adminapi
+    batch:
+      initialize-schema: always
+      job:
+        enabled: false 
+  datasource:
+    #url: jdbc:mysql://192.168.20.153:3306/akpmsdb?useSSL=false&zeroDateTimeBehavior=convertToNull
+   # url: jdbc:mysql://st3.idsil.com/akpmsdb?useSSL=false&zeroDateTimeBehavior=convertToNull
+   # url: jdbc:mysql://192.168.20.153:3306/akpmsdbdev?useSSL=false&zeroDateTimeBehavior=convertToNull
+    #url: jdbc:mysql://192.168.20.153:3306/akpmsdb10?useSSL=false&zeroDateTimeBehavior=convertToNull
+   # url: jdbc:mysql://192.168.20.153:3306/akpmsdbtesting?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    url: jdbc:mysql://localhost:3306/akpmsdb?useSSL=false&zeroDateTimeBehavior=convertToNull
+##    username: munish
+##    password: Login@#11
+#    username: akpmsdbuser
+#    password: Login@@6009
+
+#    # client server argus
+    url: jdbc:mysql://192.168.30.230:3306/akpms_prod?useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: akpmsdb10
+    password: Login@#11
+    #akpms_stage
+#    url: jdbc:mysql://192.168.30.230:3306/akpms_stage?useSSL=false&zeroDateTimeBehavior=convertToNull
+#    username: akpmsdb10
+#    password: Login@#11
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+    initialization-mode: never
+    platform: mysql
+
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        #dialect: org.hibernate.dialect.MySQL5Dialect
+        type: trace
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: none
+      show_sql: true
+      format_sql: true
+      use_sql_comments: true
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
+logging:
+     level:
+       com.idsargus: DEBUG
+       org.hibernate.SQL: DEBUG
+       org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+       org.springframework.web: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: 'dev'
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          fetch_size: 10000
