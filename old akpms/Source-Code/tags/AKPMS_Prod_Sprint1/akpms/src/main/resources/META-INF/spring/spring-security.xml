@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!--Spring Security HTTP basic authentication configuration -->
+	<http  use-expressions="true">
+		<intercept-url pattern="/static/resources/**" access="permitAll" />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/flows/**" access="permitAll" />
+		<intercept-url pattern="/forget" access="permitAll" />
+		<intercept-url pattern="/admin" access="hasAnyRole('Admin','Document Manager','Standard User','Trainee')" />
+		<intercept-url pattern="/admin/doctor/**" access="hasAnyRole('Admin','P-11','P-12')"/>
+		<intercept-url pattern="/admin/insurance/**" access="hasAnyRole('Admin','P-11','P-12')"/>
+		<intercept-url pattern="/admin/payment/**" access="hasAnyRole('Admin','P-12')"/>
+		<intercept-url pattern="/admin/**" access="hasRole('Admin')"/>
+		<intercept-url pattern="/processmanual" access="hasAnyRole('Admin','Document Manager','Standard User','Trainee')"/>
+		<intercept-url pattern="/processmanual/add" access="hasAnyRole('Document Manager')"/>
+		<intercept-url pattern="/traineeevaluation/**" access="hasAnyRole('P-1')"/>
+		<intercept-url pattern="/generatereport/traineeevaluationreport/**" access="hasAnyRole('P-1')"/>
+		<intercept-url pattern="/**" access="hasAnyRole('Admin','Document Manager','Standard User','Trainee')"/>
+		<form-login login-page="/login" default-target-url="/" always-use-default-target="true"
+			authentication-failure-url="/login?error=1" />
+		 <custom-filter position="LOGOUT_FILTER" ref="logoutFilter" />
+		<!--  <logout invalidate-session="true" logout-success-url="/login" />-->
+
+		<session-management session-fixation-protection="newSession" invalid-session-url="/login"></session-management>
+	</http>
+
+	<beans:bean id="customAuthenticationManager" class="argus.mvc.user.LoginController" />
+
+	<authentication-manager>
+		<authentication-provider ref="customAuthenticationManager" />
+	</authentication-manager>
+
+	<beans:bean id="loggerListener" class="org.springframework.security.authentication.event.LoggerListener" />
+
+	<beans:bean id="customLogoutHandler" class="argus.util.SecurityLogoutHandler"/>
+
+	<beans:bean id="logoutFilter" class="org.springframework.security.web.authentication.logout.LogoutFilter">
+		<!-- if logout succeed then this is the URL -->
+		<beans:constructor-arg value="/login?loggedout=true"/>
+		<beans:constructor-arg>
+			<beans:list>
+				<beans:ref bean="customLogoutHandler"/>
+			</beans:list>
+		</beans:constructor-arg>
+		<!-- Logout filter will be called when detected /j_spring_security_logout call -->
+		<beans:property name="filterProcessesUrl" value="/j_spring_security_logout"/>
+	</beans:bean>
+
+</beans:beans>

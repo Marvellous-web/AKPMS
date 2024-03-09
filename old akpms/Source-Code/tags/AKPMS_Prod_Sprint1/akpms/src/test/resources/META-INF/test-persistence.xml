@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+	<persistence-unit name="testPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>argus.domain.User</class>
+		<class>argus.domain.Files</class>
+		<class>argus.domain.Insurance</class>
+		<class>argus.domain.Department</class>
+		<class>argus.domain.Role</class>
+		<class>argus.domain.Permission</class>
+		<class>argus.domain.EmailTemplate</class>
+		<class>argus.domain.LoginLogs</class>
+		<class>argus.domain.AdminSettings</class>
+		<class>argus.domain.TraineeEvaluate</class>
+		<class>argus.domain.Notifications</class>
+		<class>argus.domain.ProcessManual</class>
+		<class>argus.domain.ProcessManualPosition</class>
+		<class>argus.domain.ArProductivity</class>
+		<class>argus.domain.PaymentType</class>
+		<class>argus.domain.RevenueType</class>
+		<class>argus.domain.Doctor</class>
+		<class>argus.domain.AdjustmentLogWorkFlow</class>
+		<class>argus.domain.CodingCorrectionLogWorkFlow</class>
+		<class>argus.domain.PaymentPostingWorkFlow</class>
+		<class>argus.domain.RequestCheckTracerWorkFlow</class>
+		<class>argus.domain.SecondRequestLogWorkFlow</class>
+		<class>argus.domain.RequestForChargePostingWorkFlow</class>
+		<class>argus.domain.PaymentBatch</class>
+		<class>argus.domain.PaymentBatchMoneySource</class>
+		<class>argus.domain.MoneySource</class>
+		<class>argus.domain.AdminIncome</class>
+		<class>argus.domain.TaskName</class>
+		<class>argus.domain.paymentproductivity.PaymentProductivity</class>
+		<class>argus.domain.paymentproductivity.PaymentProdQueryToTL</class>
+		<class>argus.domain.paymentproductivity.PaymentProductivityRefundRequest</class>
+		<class>argus.domain.paymentproductivity.PaymentProductivityHourly</class>
+
+
+        <properties>
+	        <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+        	<property name="hibernate.show_sql" value="true" />
+        </properties>
+	</persistence-unit>
+</persistence>

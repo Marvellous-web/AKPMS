@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- We declare a new template named template-main. This template is used
+		for displaying the main page. It has 4 attributes. These attributes are placeholder
+		for our contents For each attribute, we have assigned a corresponding JSP -->
+
+	<definition name="template-main" template="/WEB-INF/views/layout/mainLayout.jsp">
+		<put-attribute name="browser-title" value="ARGUS::AKPMS"
+			type="string" />
+		<put-attribute name="header-content" value="/WEB-INF/views/inc/header.jsp" />
+		<put-attribute name="section-title" value="Dashboard"
+			type="string" />
+		<put-attribute name="primary-content" value="" />
+		<put-attribute name="left-navigation-content" value="/WEB-INF/views/inc/leftNav.jsp" />
+		<put-attribute name="footer-content" value="/WEB-INF/views/inc/footer.jsp" />
+		<put-attribute name="show-menu-name" value="dashboardMenu"
+			type="string" />
+	</definition>
+
+
+	<!-- INDEX page -->
+	<definition name="index" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/index.jsp" />
+	</definition>
+
+	<!-- ADMIN INDEX page -->
+	<definition name="admin/index" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/admin/index.jsp" />
+	</definition>
+
+	<!-- User List page -->
+	<definition name="admin/userList" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/admin/userList.jsp" />
+		<put-attribute name="show-menu-name" value="userMenu"
+			type="string" />
+		<put-attribute name="section-title" value="User Management"
+			type="string" />
+	</definition>
+
+	<!-- User Add page -->
+	<definition name="admin/userAdd" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/admin/userAdd.jsp" />
+		<put-attribute name="show-menu-name" value="userMenu"
+			type="string" />
+		<put-attribute name="section-title" value="User Management"
+			type="string" />
+	</definition>
+
+	<!-- Department List page -->
+	<definition name="admin/departmentList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/departmentList.jsp" />
+		<put-attribute name="show-menu-name" value="departmentMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Department Management"
+			type="string" />
+	</definition>
+
+	<!-- Department Add page -->
+	<definition name="admin/departmentAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/departmentAdd.jsp" />
+		<put-attribute name="show-menu-name" value="departmentMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Department Management"
+			type="string" />
+	</definition>
+
+	<!-- Email Template List page -->
+	<definition name="admin/emailTemplateList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/emailTemplateList.jsp" />
+		<put-attribute name="show-menu-name" value="emailTemplateMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Email Template Management"
+			type="string" />
+	</definition>
+
+	<!-- Email Template Add page -->
+	<definition name="admin/emailTemplateAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/emailTemplateAdd.jsp" />
+		<put-attribute name="show-menu-name" value="emailTemplateMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Email Template Management"
+			type="string" />
+	</definition>
+
+	<!-- Settings MY PROFILE page -->
+	<definition name="myProfile" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/myProfile.jsp" />
+		<put-attribute name="show-menu-name" value="settingsMenu"
+			type="string" />
+		<put-attribute name="section-title" value="My Profile"
+			type="string" />
+	</definition>
+
+	<!-- Process manual add page -->
+	<definition name="processManualAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/processManualAdd.jsp" />
+		<put-attribute name="show-menu-name" value="processManualMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Process Manual"
+			type="string" />
+	</definition>
+
+	<!-- Process manual list page -->
+	<definition name="processManualList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/processManualList.jsp" />
+		<put-attribute name="show-menu-name" value="processManualMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Process Manual"
+			type="string" />
+	</definition>
+
+	<!-- Process manual detail page -->
+	<definition name="processManualDetail" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/processManualDetail.jsp" />
+		<put-attribute name="show-menu-name" value="processManualMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Process Manual"
+			type="string" />
+	</definition>
+
+	<!-- Settings CHANGE PASSWORD page -->
+	<definition name="changePassword" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/changePassword.jsp" />
+		<put-attribute name="show-menu-name" value="settingsMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Change Password"
+			type="string" />
+	</definition>
+
+	<!-- Settings EVALUATION SETTINGS page -->
+	<definition name="admin/evaluationSettings" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/evaluationSettings.jsp" />
+		<put-attribute name="show-menu-name" value="settingsMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Evaluation Settings"
+			type="string" />
+	</definition>
+
+	<!-- Settings TRAINEE EVALUATION page -->
+	<definition name="traineeList" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/traineeList.jsp" />
+		<put-attribute name="show-menu-name" value="evaluationMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Trainee Evaluation"
+			type="string" />
+	</definition>
+
+	<definition name="evaluateTrainee" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/evaluateTrainee.jsp" />
+		<put-attribute name="show-menu-name" value="evaluationMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Evaluate Trainee"
+			type="string" />
+	</definition>
+
+	<!-- Settings ERROR - 404 page and ERROR-403 -->
+	<definition name="error-404" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/error-404.jsp" />
+		<put-attribute name="show-menu-name" value="dashboardMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Page not available"
+			type="string" />
+	</definition>
+
+	<definition name="accessDenied" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/accessDenied.jsp" />
+		<put-attribute name="show-menu-name" value="dashboardMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Access Denied"
+			type="string" />
+	</definition>
+
+	<!-- Report PROCESS MANUAL READ STATUS REPORT page -->
+	<definition name="processManualReadStatusReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/processManualReadStatusReport.jsp" />
+		<put-attribute name="show-menu-name" value="reportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Process Manual Read Status Report"
+			type="string" />
+	</definition>
+
+	<!-- Report TRAINEE EVALUATION REPORT page -->
+	<definition name="traineeEvaluationReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/traineeEvaluationReport.jsp" />
+		<put-attribute name="show-menu-name" value="reportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Trainee Evaluation Report"
+			type="string" />
+	</definition>
+
+	<!-- Notifications Page -->
+	<definition name="notifications" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/notifications.jsp" />
+		<put-attribute name="show-menu-name" value="dashboardMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Notifications"
+			type="string" />
+	</definition>
+
+	<!-- Insurance Add page -->
+	<definition name="admin/insuranceAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/insuranceAdd.jsp" />
+		<put-attribute name="show-menu-name" value="insuranceMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Insurance Management"
+			type="string" />
+	</definition>
+
+
+	<!-- Insurance List page -->
+	<definition name="admin/insuranceList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/insuranceList.jsp" />
+		<put-attribute name="show-menu-name" value="insuranceMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Insurance Management"
+			type="string" />
+	</definition>
+
+	<!-- Payment Type Add page -->
+	<definition name="admin/paymentTypeAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/paymentTypeAdd.jsp" />
+		<put-attribute name="show-menu-name" value="paymentTypeMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Type Management"
+			type="string" />
+	</definition>
+
+
+	<!-- Payment Type List page -->
+	<definition name="admin/paymentTypeList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/paymentTypeList.jsp" />
+		<put-attribute name="show-menu-name" value="paymentTypeMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Type Management"
+			type="string" />
+	</definition>
+
+
+	<!-- Doctor Add page -->
+	<definition name="admin/doctorAdd" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/admin/doctorAdd.jsp" />
+		<put-attribute name="show-menu-name" value="doctorMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Doctor Management"
+			type="string" />
+	</definition>
+
+
+	<!-- Doctor List page -->
+	<definition name="admin/doctorList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/admin/doctorList.jsp" />
+		<put-attribute name="show-menu-name" value="doctorMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Doctor Management"
+			type="string" />
+	</definition>
+
+	<!-- ChargeBatchProcessingSystem Add Page -->
+	<definition name="chargeBatchSystemAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeBatchProcessingAdd.jsp" />
+		<put-attribute name="show-menu-name" value="chargeBatchMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Charge Batch Processing"
+			type="string" />
+	</definition>
+
+	<!-- ChargeBatchProcessingSystem List Page -->
+	<definition name="ChargeBatchSystemList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeBatchProcessingList.jsp" />
+		<put-attribute name="show-menu-name" value="chargeBatchMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Charge Batch Processing"
+			type="string" />
+	</definition>
+
+	<!-- ChargeBatchProcessingSystem Report Page -->
+	<definition name="chargeBatchSystemReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeBatchProcessingReport.jsp" />
+		<put-attribute name="show-menu-name" value="chargeBatchMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Charge Batch Processing Report"
+			type="string" />
+	</definition>
+
+	<!-- ChargeBatchProcessingSystem Run Report Page -->
+	<definition name="chargeBatchSystemRunReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeBatchProcessingRunReport.jsp" />
+		<put-attribute name="show-menu-name" value="chargeBatchMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Charge Batch Processing Report"
+			type="string" />
+	</definition>
+
+	<!-- ChargeBatchProcessingSystem Print Page -->
+	<definition name="chargeBatchSystemPrint" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeBatchProcessingPrint.jsp" />
+		<put-attribute name="show-menu-name" value="chargeBatchMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Charge Batch Processing Report"
+			type="string" />
+	</definition>
+
+	<!-- ChargeBatchProductivity Page -->
+	<definition name="chargeProductivity" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeProductivity/chargePostingProductivity.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Charge Productivity"
+			type="string" />
+	</definition>
+
+	<definition name="chargeProductivityList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeProductivity/chargePostingProductivityList.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Charge Productivity"
+			type="string" />
+	</definition>
+
+	<!-- Work Flow for Charge Productivity -->
+	<definition name="chargeProductivity/chargeProdRejection"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeProductivity/chargeProdReject.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Manage Rejections for charges "
+			type="string" />
+	</definition>
+
+
+	<!-- Web Flow -->
+
+	<definition name="flows/arProductivity/arProductivity"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/arProductivity.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<definition name="flows/arProductivity/arProductivityList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/arProductivityList.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<!-- Work Flow For Coding Correction Log -->
+
+	<definition name="flows/arproductivity/codingcorrectionlogworkflow"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/codingCorrectionLogWorkflow.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<definition name="flows/arProductivity/codingCorrectionLogWorkflowList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/codingCorrectionLogWorkflowList.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+
+
+	<!-- Work Flow For Adjustment Log -->
+
+
+	<definition name="flows/arProductivity/adjustmentLogs"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/adjustmentLogs.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<definition name="flows/arProductivity/adjustmentLogsList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/adjustmentLogList.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+
+	<!-- Work Flow For AR Query To TL -->
+
+	<definition name="flows/arproductivity/querytotl"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/arQueryToTL.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<definition name="flows/arProductivity/queryToTLList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/arQueryToTLList.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<!-- Work Flow For Second Request Log -->
+
+
+	<definition name="flows/arproductivity/secondrequestlogworkflow"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/secondRequestLogWorkflow.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<definition name="flows/arProductivity/secondRequestLogWorkFlowList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/secondRequestLogWorkflowList.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+
+	<!-- Work Flow For Request for check tracer -->
+	<definition name="flows/arProductivity/requestForCheckTracerList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/requestForCheckTracerList.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<definition name="flows/arProductivity/requestForCheckTracer"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/requestForCheckTracer.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="AR Productivity Management"
+			type="string" />
+	</definition>
+
+	<!-- Payment Batch Add -->
+
+	<definition name="paymentbatch/paymentBatchAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentbatch/paymentBatchAdd.jsp" />
+		<put-attribute name="show-menu-name" value="paymentBatchingMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Batching System"
+			type="string" />
+	</definition>
+
+	<!-- Payment Batch List -->
+
+	<definition name="paymentbatch/paymentBatchList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentbatch/paymentBatchList.jsp" />
+		<put-attribute name="show-menu-name" value="paymentBatchingMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Batching System"
+			type="string" />
+	</definition>
+
+	<definition name="paymentbatch/paymentBatchUpdate" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentbatch/paymentBatchUpdate.jsp" />
+		<put-attribute name="show-menu-name" value="paymentBatchingMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Batching System"
+			type="string" />
+	</definition>
+
+
+	<!-- Payment Productivity ERA -->
+
+	<definition name="paymentProductivity/paymentProdERA"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentProdERA.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Productivity"
+			type="string" />
+	</definition>
+
+	<!-- Payment Productivity NON-ERA -->
+
+	<definition name="paymentProductivity/paymentProdNonERA"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentProdNonERA.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Productivity"
+			type="string" />
+	</definition>
+
+	<!-- Payment Productivity Hourly -->
+
+	<definition name="paymentProductivity/paymentProductivityHourly"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentProductivityHourly.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Productivity"
+			type="string" />
+	</definition>
+
+	<definition name="paymentProductivity/paymentProductivityHourlyList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentProductivityHourlyList.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Productivity"
+			type="string" />
+	</definition>
+
+	<!-- payment productivity List Page -->
+	<definition name="paymentProductivityList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentProductivityList.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Productivity"
+			type="string" />
+	</definition>
+
+	<!-- Payment Productivity Query To TL -->
+
+	<definition name="paymentProductivity/paymentProdQueryToTL"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentProdQueryToTL.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Productivity"
+			type="string" />
+	</definition>
+
+	<!-- Payment Productivity Offset -->
+
+	<definition name="paymentProductivity/paymentProdERAOffset"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentProdERAOffset.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Offset"
+			type="string" />
+	</definition>
+
+
+	<definition name="paymentProductivity/paymentOffsetManager"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentOffsetByManager.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Offset Posting By Offset Manager"
+			type="string" />
+	</definition>
+
+
+	<definition name="paymentProductivity/paymentProductivityRefundRequestAdd"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/paymentProductivityRefundRequestAdd.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Productivity"
+			type="string" />
+	</definition>
+
+	<!-- ERA Productivity Report Page -->
+	<definition name="eraProductivityReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivityReport/eraProductivityReport.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProduvtivityReportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="ERA Productivity Report"
+			type="string" />
+	</definition>
+
+	<!--NON ERA Productivity Report Page -->
+	<definition name="nonEraProductivityReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivityReport/nonEraProductivityReport.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProduvtivityReportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="NON ERA Productivity Report"
+			type="string" />
+	</definition>
+
+	<!-- Work Flow for Charge Productivity -->
+	<definition name="chargeProductivity/chargeProdRejectionList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeProductivity/chargeBatchRejectList.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Rejection List of Charge Batches"
+			type="string" />
+	</definition>
+	<definition name="chargeProductivity/chargeProdRejectReUpdate"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeProductivity/chargeProdRejectReUpdate.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Resolution For Rejection"
+			type="string" />
+	</definition>
+
+	<definition name="paymentProductivity/offsetPostedList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/offsetPostedList.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProduvtivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Offset Posting By Offset Manager"
+			type="string" />
+	</definition>
+
+	<!-- payment productivity List Page -->
+	<definition name="eraOffsetList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivity/eraOffsetList.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProduvtivityReportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Offset"
+			type="string" />
+	</definition>
+
+	<!--CAP Productivity Report Page -->
+	<definition name="capProductivityReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivityReport/capProductivityReport.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProduvtivityReportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="CAP Productivity Report"
+			type="string" />
+	</definition>
+
+	<!--Refund Request Productivity Report Page -->
+	<definition name="refundRequestProductivityReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivityReport/refundRequestProductivityReport.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProduvtivityReportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Refund Request Productivity Report"
+			type="string" />
+	</definition>
+
+	<!-- Offset Posted Work Flow Report Page -->
+	<definition name="offsetPostedWorkflowReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivityReport/offsetPostedReport.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProduvtivityReportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Offset Posted Work Flow Report"
+			type="string" />
+	</definition>
+
+	<!-- Offset Work Flow Report Page -->
+	<definition name="offsetWorkflowReport" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentProductivityReport/offsetReport.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProduvtivityReportMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Offset Work Flow Report"
+			type="string" />
+	</definition>
+
+	<!--Cash log reports [cashlog landing page] -->
+	<definition name="cashlogIndex" extends="template-main">
+		<put-attribute name="primary-content" value="/WEB-INF/views/cashlog/index.jsp" />
+		<put-attribute name="show-menu-name" value="cashlogMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Generate Cashlog Report"
+			type="string" />
+	</definition>
+
+	<!--Cash log reports [Journal Entry Management Fee Report] -->
+	<definition name="rptJEMngFee" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/cashlog/rptJEMngFee.jsp" />
+		<put-attribute name="show-menu-name" value="cashlogMenu"
+			type="string" />
+		<put-attribute name="section-title"
+			value="Journal Entry Management Fee Report" type="string" />
+	</definition>
+
+	<!--Cash log reports [Journal Entry Summary Report] -->
+	<definition name="rptEntrySummary" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/cashlog/rptEntrySummary.jsp" />
+		<put-attribute name="show-menu-name" value="cashlogMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Journal Entry Summary Report"
+			type="string" />
+	</definition>
+
+	<!--Cash log reports [Journal Entry Detailed Report] -->
+	<definition name="rptEntryDetailed" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/cashlog/rptEntryDetailed.jsp" />
+		<put-attribute name="show-menu-name" value="cashlogMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Journal Entry Detailed Report"
+			type="string" />
+	</definition>
+
+	<!--Cash log reports [Journal Entry with management fee Report] -->
+	<definition name="rptEntryWithMngFee" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/cashlog/rptEntryWithMngFee.jsp" />
+		<put-attribute name="show-menu-name" value="cashlogMenu"
+			type="string" />
+		<put-attribute name="section-title"
+			value="Journal Entry with Management Fee Report" type="string" />
+	</definition>
+
+	<!--Cash log reports [Daily payment receipt log] -->
+	<definition name="rptDailyPaymentReceiptLog" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/cashlog/rptDailyPaymentReceiptLog.jsp" />
+		<put-attribute name="show-menu-name" value="cashlogMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Daily Payment Receipt Log"
+			type="string" />
+	</definition>
+
+	<!-- Work Flow For Refund Request -->
+	<definition name="flows/arProductivity/refundRequest"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/refundRequestWorkflow.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Refund Request"
+			type="string" />
+	</definition>
+
+	<definition name="flows/arProductivity/refundRequestWorkFlowList"
+		extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/flows/arProductivity/refundRequestWorkFlowList.jsp" />
+		<put-attribute name="show-menu-name" value="productivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Refund Request"
+			type="string" />
+	</definition>
+
+	<!-- Settings GenericExceptionPage - page -->
+	<definition name="GenericExceptionPage" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/GenericExceptionPage.jsp" />
+		<put-attribute name="show-menu-name" value="dashboardMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Internal error occur"
+			type="string" />
+	</definition>
+
+	<definition name="paymentbatch/paymentBatchPrint" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/paymentbatch/paymentBatchPrint.jsp" />
+		<put-attribute name="show-menu-name" value="paymentBatchingMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Payment Batch Print"
+			type="string" />
+	</definition>
+	<!-- CredentialingAccounting Add Page -->
+	<definition name="credentialingAccountingAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/credentialingAccountingAdd.jsp" />
+		<put-attribute name="show-menu-name" value="dashboardMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Credentialing Accounting Productivity" type="string" />
+	</definition>
+
+	<!-- CredentialingAccounting List Page -->
+	<definition name="credentialingAccountingList" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/credentialingAccountingList.jsp" />
+		<put-attribute name="show-menu-name" value="dashboardMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Credentialing Accounting Productivity"
+			type="string" />
+	</definition>
+
+	<definition name="unHoldAdd" extends="template-main">
+		<put-attribute name="primary-content"
+			value="/WEB-INF/views/chargeProductivity/unHoldAdd.jsp" />
+		<put-attribute name="show-menu-name" value="paymentProductivityMenu"
+			type="string" />
+		<put-attribute name="section-title" value="Charge Productivity"
+			type="string" />
+	</definition>
+
+</tiles-definitions>
+
+
+

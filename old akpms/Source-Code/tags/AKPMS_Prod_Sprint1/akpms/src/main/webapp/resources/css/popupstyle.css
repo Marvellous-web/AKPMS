@@ -1,0 +1,131 @@
+.button {
+	background-color:#2b91af;
+	border-radius:10px;
+	box-shadow:0 2px 3px rgba(0, 0, 0, 0.3);
+	color:#fff;
+	cursor:pointer;
+	display:inline-block;
+	padding:10px 20px;
+	text-align:center;
+	text-decoration:none;
+}
+
+.button.small {
+	border-radius:15px;
+	float:right;
+	margin:22px 5px 0;
+	padding:6px 15px;
+}
+
+.button:hover {
+	background-color:#1e1e1e;
+}
+
+.button>span {
+	font-size:84%;
+}
+
+.button.bClose {
+	border-radius:7px 7px 7px 7px;
+	box-shadow:none;
+	font:bold 131% sans-serif;
+	padding:0 6px 2px;
+	position:absolute;
+	right:-7px;
+	top:-7px;
+}
+
+.example {
+	display:block;
+	line-height:1.25;
+	padding:30px 110px 15px 0;
+}
+
+.code-undefined {
+	color:#617a61;
+}
+
+.code-string {
+	color:#fa8072;
+}
+
+.code-function {
+	color:#ffa54f;
+}
+
+.code-int {
+	color:#2b91af;
+}
+
+.code-comment {
+	color:#7ccd60;
+}
+
+::-moz-selection {
+	background-color:#2b91af;
+	color:#fff;
+	text-shadow:none;
+}
+
+::selection {
+	background-color:#2b91af;
+	color:#fff;
+	text-shadow:none;
+}
+
+#page h1+.button {
+	position:absolute;
+	top:20px;
+	right:25px;
+}
+
+#share {
+	position:absolute;
+	right:18px;
+	top:85px;
+	width:205px;
+}
+
+#share>div {
+	display:inline-block;
+}
+
+#page li {
+	position:relative;
+}
+
+#page ul+a {
+	display:block;
+	font-size:180%;
+	margin:25px 0;
+	text-align:center;
+	text-decoration:none;
+}
+
+.note {
+	color:#c0c0c0;
+	font-size:80%;
+}
+
+#popup, .popup2, .bMulti {
+	background-color:#fff;
+	border-radius:10px 10px 10px 10px;
+	box-shadow:0 0 25px 5px #999;
+	color:#111;
+	display:none;
+	min-width:450px;
+	/*padding:25px;*/
+}
+
+
+.popup2, .bMulti {
+/*	min-height:250px;*/
+	z-index:-1;
+}
+
+.popup2 .logo {
+	color:#2B91AF;
+	font: bold 325% 'Petrona', sans;
+}
+
+
