@@ -31,7 +31,8 @@ public class AkpmsArServiceApplication implements RepositoryRestConfigurer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AkpmsArServiceApplication.class, args);
-		System.out.println("Hello world");
+		System.out.println("Hello world1");
+		System.out.println("Nthng");
 	}
 
 //	@Bean
